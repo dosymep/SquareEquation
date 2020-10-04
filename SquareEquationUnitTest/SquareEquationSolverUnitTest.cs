@@ -37,9 +37,11 @@ namespace SquareEquationUnitTest {
         [TestCase("1 1 1")]
         public void SolveTestFailMethod(string @params) {
             ISolver solver = _solverFactory.CreateSolver(@params);
-            Assert.Throws<Exception>(() => solver.Solve());
+            Assert.Throws<DiscriminantLessZeroException>(() => solver.Solve());
         }
 
+        [TestCase(null)]
+        [TestCase("")]
         [TestCase("1")]
         [TestCase("1 0 1 2")]
         public void SolveFactoryTestArgumentExceptionMethod(string @params) {
@@ -61,6 +63,7 @@ namespace SquareEquationUnitTest {
 
         [TestCaseSource(nameof(FileTestCases))]
         public void SolveTestFileMethod(string filePath) {
+            // Не разобрался почему файл возвращается не с того пути
             ISolver[] solvers = _solverFactory.CreateSolverFromFile(filePath);
             Assert.AreEqual(solvers.Length, 4);
         }
