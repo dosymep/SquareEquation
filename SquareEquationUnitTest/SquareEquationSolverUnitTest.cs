@@ -13,13 +13,13 @@ namespace SquareEquationUnitTest {
             _solverFactory = SquareEquationFactory.CreateSolverFactory();
         }
 
-        [TestCaseSource(nameof(TestCases))]
-        public Answer SolveTestMethod(string @params) {
+        [TestCaseSource(nameof(PositiveTestCases))]
+        public Answer SolveTestPositiveMethod(string @params) {
             ISolver solver = _solverFactory.CreateSolver(@params);
             return solver.Solve();
         }
 
-        public static IEnumerable TestCases {
+        public static IEnumerable PositiveTestCases {
             get {
                 yield return new TestCaseData("2 5 -3.5").Returns(new Answer() { X1 = 0.5700, X2 = -3.0700 });
                 yield return new TestCaseData("1 4 1").Returns(new Answer() { X1 = -0.2679, X2 = -3.7321 });
