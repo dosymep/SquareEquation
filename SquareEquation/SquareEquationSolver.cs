@@ -26,5 +26,10 @@ namespace SquareEquation {
         private double GetX2(double discriminant) {
             return (-B - Math.Sqrt(discriminant)) / (2 * A);
         }
+
+        public override string ToString() {
+            return $"Equation coefficents: A = {A}; B = {B}; C = {C}. Equation discriminant: {GetDiscriminant()}";
+
+        }
     }
 }
