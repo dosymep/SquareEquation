@@ -9,7 +9,7 @@ namespace SquareEquation {
         public Answer Solve() {
             double discriminant = GetDiscriminant();
             if(discriminant < 0) {
-                throw new Exception("Equation doesn't have variety.");
+                throw new Exception("Equation doesn't have a variety.");
             }
 
             return new Answer() { X1 = GetX1(discriminant), X2 = GetX2(discriminant) };

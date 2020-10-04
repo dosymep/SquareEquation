@@ -53,7 +53,7 @@ namespace SquareEquation {
 
             string[] abc = @params.Split(' ');
             if(abc.Length != 3) {
-                throw new ArgumentException("Coefficent equation arern't correct.");
+                throw new ArgumentException("Coefficent equation aren't correct.");
             }
 
             double a = double.Parse(abc[0], _cultureInfo);
