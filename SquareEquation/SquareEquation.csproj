@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Answer.cs" />
+    <Compile Include="DiscriminantLessZero.cs" />
     <Compile Include="DoubleExtensions.cs" />
     <Compile Include="ISolver.cs" />
     <Compile Include="ISolverFactory.cs" />
