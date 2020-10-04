@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace SquareEquation {
-    internal class SquareEquationSolver {
+    internal class SquareEquationSolver : ISolver {
         public double A { get; set; }
         public double B { get; set; }
         public double C { get; set; }
@@ -9,7 +9,7 @@ namespace SquareEquation {
         public Answer Solve() {
             double discriminant = GetDiscriminant();
             if(discriminant < 0) {
-                throw new Exception("Уравнение не имеет корней.");
+                throw new Exception("Equation doesn't have variety.");
             }
 
             return new Answer() { X1 = GetX1(discriminant), X2 = GetX2(discriminant) };
