@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace SquareEquation {
     internal class SquareEquationFactory : ISolverFactory {
+        private SquareEquationFactory() { }
+
+        public static ISolverFactory CreateSolverFactory() {
+            return new SquareEquationFactory();
+        }
+
         public ISolver CreateSolver(string @params) {
             string[] abc = @params.Split(' ');
             if(abc.Length != 3) {
