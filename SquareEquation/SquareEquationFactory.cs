@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SquareEquation {
-    internal class SquareEquationFactory : ISolverFactory {
+    public class SquareEquationFactory : ISolverFactory {
         private readonly CultureInfo _cultureInfo;
 
         private SquareEquationFactory() {

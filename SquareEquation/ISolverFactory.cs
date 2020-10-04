@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SquareEquation {
-    interface ISolverFactory {
+    public interface ISolverFactory {
         ISolver CreateSolverFromConsole();
 
         ISolver[] CreateSolverFromFile();
