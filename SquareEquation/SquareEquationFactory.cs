@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,31 @@ namespace SquareEquation {
             return new SquareEquationFactory(cultureInfo);
         }
 
+        public ISolver CreateSolverFromConsole() {
+            Console.WriteLine("Please input a coefficents: ");
+            return CreateSolver(Console.ReadLine());
+        }
+
+        public ISolver[] CreateSolverFromFile() {
+            Console.WriteLine("Please input a file path: ");
+            return CreateSolverFromFile(Console.ReadLine());
+        }
+
+        public ISolver[] CreateSolverFromFile(string filePath) {
+            if(string.IsNullOrEmpty(filePath)) {
+                throw new ArgumentException("FilePath cannont be null or empty.", nameof(filePath));
+            }
+
+            return File.ReadAllLines(filePath)
+                .Select(item => CreateSolver(item))
+                .ToArray();
+        }
+
         public ISolver CreateSolver(string @params) {
+            if(string.IsNullOrEmpty(@params)) {
+                throw new ArgumentException("Coefficent cannont be null or empty.", nameof(@params));
+            }
+
             string[] abc = @params.Split(' ');
             if(abc.Length != 3) {
                 throw new ArgumentException("Coefficent equation arern't correct.");
